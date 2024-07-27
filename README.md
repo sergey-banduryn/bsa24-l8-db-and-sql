@@ -7,10 +7,10 @@ erDiagram
         id integer PK "not null"
         movie_id integer FK "not null"
         person_id integer FK "null"
-        role role "not null"
-        created_at timestamp_with_time_zone "not null"
         name character_varying "null"
         description text "null"
+        role role "not null"
+        created_at timestamp_with_time_zone "not null"
         updated_at timestamp_with_time_zone "null"
     }
 
@@ -41,24 +41,22 @@ erDiagram
 
     movies {
         id integer PK "not null"
-        origin_country character FK "null"
         director integer FK "null"
+        origin_country character FK "null"
         poster integer FK "null"
         title character_varying "not null"
+        description text "null"
+        budget money "null"
+        release_date date "null"
         duration smallint "not null"
         created_at timestamp_with_time_zone "not null"
-        release_date date "null"
-        budget money "null"
-        description text "null"
         updated_at timestamp_with_time_zone "null"
     }
 
     movies_genres {
         id integer PK "not null"
-        genre_id integer FK "not null"
         movie_id integer FK "not null"
-        genre_id integer "not null"
-        movie_id integer "not null"
+        genre_id integer FK "not null"
         created_at timestamp_with_time_zone "not null"
         updated_at timestamp_with_time_zone "null"
     }
@@ -69,10 +67,10 @@ erDiagram
         main_photo integer FK "null"
         first_name character_varying "not null"
         last_name character_varying "not null"
+        biography text "null"
+        birthday date "null"
         gender gender "not null"
         created_at timestamp_with_time_zone "not null"
-        birthday date "null"
-        biography text "null"
         updated_at timestamp_with_time_zone "null"
     }
 
@@ -80,8 +78,6 @@ erDiagram
         id integer PK "not null"
         person_id integer FK "not null"
         photo_id integer FK "not null"
-        person_id integer "not null"
-        photo_id integer "not null"
         created_at timestamp_with_time_zone "not null"
         updated_at timestamp_with_time_zone "null"
     }
@@ -89,21 +85,19 @@ erDiagram
     users {
         id integer PK "not null"
         avatar integer FK "null"
-        email character_varying "not null"
-        password character_varying "not null"
         username character_varying "not null"
-        created_at timestamp_with_time_zone "not null"
         first_name character_varying "null"
         last_name character_varying "null"
+        email character_varying "not null"
+        password character_varying "not null"
+        created_at timestamp_with_time_zone "not null"
         updated_at timestamp_with_time_zone "null"
     }
 
     users_favorite_movies {
         id integer PK "not null"
-        movie_id integer FK "not null"
         user_id integer FK "not null"
-        movie_id integer "not null"
-        user_id integer "not null"
+        movie_id integer FK "not null"
         created_at timestamp_with_time_zone "not null"
         updated_at timestamp_with_time_zone "null"
     }
